@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.6" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_ITPMETATAGS</name>
+    <author>Todor Iliev</author>
+    <copyright>Copyright (C) 2017 Todor Iliev ( ITPrism.com ). All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.en.html GNU/GPLv3</license>
+    <authorEmail>todor@itprism.com</authorEmail>
+    <authorUrl>http://itprism.com</authorUrl>
+    <version>4.5</version>
+    <creationDate>09 March, 2017</creationDate>
+    <description><![CDATA[
+	<p>System - ITPMeta Tags is a plugin that generates meta tags and collects data from installed extensions.</p>
+	<p><a href='http://itprism.com/help/32-itpmeta-opengraph-documentation-faq' target='_blank'>Read documentation</a> that will help you to setup the extensions.</p>
+	<p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive information about updates and new ITPrism extensions.</p>
+	<p>Please, <a href="http://extensions.joomla.org/extensions/extension/site-management/seo-a-metadata/itpmeta" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
+	]]></description>
+    
+	<help url="PLG_SYSTEM_ITPMETATAGS_HELP_URL" />
+	
+    <files>
+        <filename plugin="itpmetatags">itpmetatags.php</filename>
+		<folder>language</folder>
+    </files>
+    
+    <config>
+		<fields name="params">
+            <fieldset name="basic">
+                <field name="default_image" type="media" label="PLG_SYSTEM_ITPMETATAGS_DEFAULT_IMAGE" description="PLG_SYSTEM_ITPMETATAGS_DEFAULT_IMAGE_DESC" />
+                
+               <field name="generate_metadesc" type="radio" default="1" label="PLG_SYSTEM_ITPMETATAGS_GENERATE_META_DESCRIPTION" description="PLG_SYSTEM_ITPMETATAGS_GENERATE_META_DESCRIPTION_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+
+                <field name="extract_image" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_GENERATE_IMAGE" description="PLG_SYSTEM_ITPMETATAGS_GENERATE_IMAGE_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="autoupdate_period" type="text" default="" label="PLG_SYSTEM_ITPMETATAGS_AUTOUPDATE_PERIOD" description="PLG_SYSTEM_ITPMETATAGS_AUTOUPDATE_PERIOD_DESC" class="btn-group" />
+            </fieldset>
+            
+            <fieldset name="extensions" label="PLG_SYSTEM_ITPMETATAGS_EXTENSIONS">
+                <field name="com_content" type="radio" default="1" label="PLG_SYSTEM_ITPMETATAGS_JOOMLA_CONTENT" description="PLG_SYSTEM_ITPMETATAGS_JOOMLA_CONTENT_DESC" class="btn-group" >
+                  <option value="0">JOFF</option>
+                  <option value="1">JON</option>
+                </field>
+               
+               <field name="com_k2" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_K2" description="PLG_SYSTEM_ITPMETATAGS_K2_DESC" class="btn-group" >
+                  <option value="0">JOFF</option>
+                  <option value="1">JON</option>
+               </field>
+               
+               <field name="com_cobalt" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_COBALT" description="PLG_SYSTEM_ITPMETATAGS_K2_DESC" class="btn-group" >
+                  <option value="0">JOFF</option>
+                  <option value="1">JON</option>
+               </field>
+
+                <field name="com_crowdfunding" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_CROWDFUNDING" description="PLG_SYSTEM_ITPMETATAGS_CROWDFUNDING_DESC" class="btn-group" >
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+
+                <field name="com_userideas" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_USERIDEAS" description="PLG_SYSTEM_ITPMETATAGS_USERIDEAS_DESC" class="btn-group" >
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+
+                <field name="com_socialcommunity" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_SOCIALCOMMUNITY" description="PLG_SYSTEM_ITPMETATAGS_SOCIALCOMMUNITY_DESC" class="btn-group" >
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+
+                <field name="com_virtuemart" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_VIRTUEMART" description="PLG_SYSTEM_ITPMETATAGS_VIRTUEMART_DESC" class="btn-group" >
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+
+                <field name="com_eshop" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_ESHOP" description="PLG_SYSTEM_ITPMETATAGS_ESHOP_DESC" class="btn-group" >
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+            </fieldset>
+            
+			<fieldset name="open_graph" label="PLG_SYSTEM_ITPMETATAGS_OG">
+			   <field name="ogtitle" type="radio" default="1" label="PLG_SYSTEM_ITPMETATAGS_OG_TITLE" description="PLG_SYSTEM_ITPMETATAGS_OG_TITLE_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="ogdescription" type="radio" default="1" label="PLG_SYSTEM_ITPMETATAGS_OG_DESCRIPTION" description="PLG_SYSTEM_ITPMETATAGS_OG_DESCRIPTION_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="ogurl" type="radio" default="1" label="PLG_SYSTEM_ITPMETATAGS_OG_URL" description="PLG_SYSTEM_ITPMETATAGS_OG_URL_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="ogimage" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_OG_IMAGE" description="PLG_SYSTEM_ITPMETATAGS_OG_IMAGE_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="ogarticle_published_time" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_OG_PUBLISHED_TIME" description="PLG_SYSTEM_ITPMETATAGS_OG_PUBLISHED_TIME_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="ogarticle_modified_time" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_OG_MODIFIED_TIME" description="PLG_SYSTEM_ITPMETATAGS_OG_MODIFIED_TIME_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+			</fieldset>
+			
+			<fieldset name="twitter" label="PLG_SYSTEM_ITPMETATAGS_TWITTER">
+                <field name="twitter_card" type="list" default="" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_CARD" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_CARD_DESC" >
+                    <option value="">PLG_SYSTEM_ITPMETATAGS_NONE</option>
+                    <option value="twitter_card_summary">PLG_SYSTEM_ITPMETATAGS_TWITTER_SUMMARY</option>
+                    <option value="twitter_card_summary_large_image">PLG_SYSTEM_ITPMETATAGS_TWITTER_SUMMARY_LARGE_IMAGE</option>
+                </field>
+
+			   <field name="twitter_card_title" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_TITLE" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_TITLE_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="twitter_card_description" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_DESCRIPTION" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_DESCRIPTION_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="twitter_card_url" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_URL" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_URL_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="twitter_card_image" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_IMAGE" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_IMAGE_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+               
+               <field name="twitter_card_image_alt" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_TWITTER_IMAGE_ALT" description="PLG_SYSTEM_ITPMETATAGS_TWITTER_IMAGE_ALT_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+			</fieldset>
+
+            <fieldset name="dublincore" label="PLG_SYSTEM_ITPMETATAGS_DUBLIN_CORE">
+                <field name="dublincore_title" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_TITLE" description="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_TITLE_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="dublincore_description" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_DESCRIPTION" description="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_DESCRIPTION_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="dublincore_url" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_URL" description="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_URL_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="dublincore_published_time" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_PUBLISHED_TIME" description="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_PUBLISHED_TIME_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="dublincore_modified_time" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_MODIFIED_TIME" description="PLG_SYSTEM_ITPMETATAGS_DUBLINCORE_MODIFIED_TIME_DESC" class="btn-group" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+	            
+            <fieldset name="seo" label="PLG_SYSTEM_ITPMETATAGS_SEO">
+                <field name="seo_canonical" type="radio" default="0" label="PLG_SYSTEM_ITPMETATAGS_SEO_CANONICAL" description="PLG_SYSTEM_ITPMETATAGS_SEO_CANONICAL_DESC" class="btn-group" >
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+               </field>
+            </fieldset>
+        </fields>
+	</config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="System - ITPMeta Tags">http://cdn.itprism.com/updates/itpmeta/plg_system_itpmetatags.xml</server>
+    </updateservers>
+</extension>
